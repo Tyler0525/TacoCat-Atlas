@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>APP NAME: A JS PROJECT</title>
+    <title>Taco Cat: A JS PROJECT</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,7 +25,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
                 <img src="img/MspectreMark.svg" height="24" class="d-inline-block align-text-top">
-                APP NAME
+                Taco Cat
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,10 +54,33 @@
     <main class="flex-shrink-0">
         <div class="container mt-5">
             <div class="d-flex align-items-center  justify-content-center">
-                <h1>APP UI WILL GO HERE</h1>
-                <input id="message" name="message" placeholder="Enter A Message">
-                <div class="p-2">
-                    <button id="btnSubmit" class="btn btn-primary">Display Message</button>
+                <div class="row">
+                    <div class="col">
+                        <!---Instructions--->
+                        <h1>Taco Cat: A Coding Challenge</h1>
+                        <h4 class="lead">
+                            There and back again. The Taco Cat coding challenge is based on the more traditional
+                            “Reverse a string” exercise but ultimately determines if a word or phrase is a palindrome.
+                        </h4>
+                    </div>
+                    <div class="col">
+                        <!----Main APP UI-->
+                        <h5>Enter a String To Reverse</h5>
+                        <form class="row g-2">
+                            <div class="col">
+                                <input id="checkPalindrome" name="text" class="form-control" placeholder="Enter A String">
+                            </div>
+                            <div class="col-12 p-2 d-flex justify-content-start justify-conent-md-end">
+                                <button id="btnSubmit" type="button" class="btn btn-primary">POP</button>
+                            </div>
+                        </form>
+                        <div class="alert alert-success mt-5 d-none fade show" id="alert" role="alert">
+                            <h4 id="alertheading" class=" alert-heading">You Did It!</h4>
+                            <p id="msg">
+                                <!--Content Goes-->
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,12 +126,12 @@
 
     <!----- Sweet Alert JS ------>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   
-   <!------Custom Javascript------>
+
+    <!------Custom Javascript------>
     <script src="js/site.js"></script>
-    
+
     <script>
-        document.getElementById("btnSubmit").addEventListener("click", getMessage);
+        document.getElementById("btnSubmit").addEventListener("click", getValues);
     </script>
 </body>
 
