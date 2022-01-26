@@ -3,10 +3,10 @@ function getValues() {
     let userString = document.getElementById("checkPalindrome").value;
 
     //Call reverse a String
-    let isPalindrome = checkPalindrome2(userString);
+    let returnObj = checkPalindrome2(userString);
 
     //Display the reverse String 
-    displayData(isPalindrome, userString);
+    displayData(returnObj);
 
 
 }
@@ -15,6 +15,10 @@ function getValues() {
 
 function checkPalindrome2(userString) {
     userString = userString.toLowerCase();
+    isPalindrome = false;
+    let returnObj = {};
+
+
     let regex = /[a-z0-9]/gi;
     userString = userString.replace(regex, "")
     let revString = "";
@@ -22,10 +26,16 @@ function checkPalindrome2(userString) {
         revString += userString[index];
 
     }
+
     if (revString == userString) {
-        return true;
+        isPalindrome = false;
+    } else {
+        isPalindrome = true;
     }
-    return false;
+    returnObj["IsPalindrome"] = isPalindrome;
+    returnObj["revString"] = revString;
+
+    return returnObj;
 }
 
 
@@ -33,24 +43,24 @@ function checkPalindrome2(userString) {
 //Display out Reversed String to the Page 
 
 
-function displayData(isPalindrome, userString) {
-    if (isPalindrome == true) {
+function displayData(returnObj) {
 
-        document.getElementById("alert").classList.remove("alert-danger");
-        document.getElementById("alert").classList.remove("alert-success");
 
-        
+    document.getElementById("alert").classList.remove("alert-danger");
+    document.getElementById("alert").classList.remove("alert-success");
+
+    if (returnObj[IsPalindrome] == true) {
         document.getElementById("alert").classList.add("alert-success");
         document.getElementById("msg").innerHTML = `It is a Palindrome!; ${userString}`;
-        document.getElementById("alertheading").innerHTML = `You Did It!`;
+        document.getElementById("alertheading").innerHTML = `You Did It!<br> Your reversed string is:${returnObj["revString"]}`;
     } else {
         document.getElementById("alert").classList.add("alert-danger");
         document.getElementById("msg").innerHTML = `It is not a Palindrome...: ${userString}`;
-        document.getElementById("alertheading").innerHTML = `Sorry!`;
+        document.getElementById("alertheading").innerHTML = `Sorry! <br> Your reversed string is:${returnObj["revString"]}`;
     }
 
 
-    
+
     document.getElementById("alert").classList.remove('invisible');
     document.getElementById("alert").classList.remove('d-none');
 }
