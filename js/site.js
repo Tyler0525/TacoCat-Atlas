@@ -49,13 +49,13 @@ function displayData(returnObj) {
     document.getElementById("alert").classList.remove("alert-danger");
     document.getElementById("alert").classList.remove("alert-success");
 
-    if (returnObj[IsPalindrome] == true) {
+    if (returnObj[displayData] == true) {
         document.getElementById("alert").classList.add("alert-success");
         document.getElementById("msg").innerHTML = `It is a Palindrome!; ${userString}`;
         document.getElementById("alertheading").innerHTML = `You Did It!<br> Your reversed string is:${returnObj["revString"]}`;
     } else {
         document.getElementById("alert").classList.add("alert-danger");
-        document.getElementById("msg").innerHTML = `It is not a Palindrome...: ${userString}`;
+        document.getElementById("msg").innerHTML = `It is not a Palindrome...: ${displayData}`;
         document.getElementById("alertheading").innerHTML = `Sorry! <br> Your reversed string is:${returnObj["revString"]}`;
     }
 
