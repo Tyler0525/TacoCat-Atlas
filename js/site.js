@@ -19,7 +19,7 @@ function checkPalindrome2(userString) {
     let returnObj = {};
 
 
-    let regex = /[a-z0-9]/gi;
+    let regex = /[^a-z0-9]/gi;
     userString = userString.replace(regex, "")
     let revString = "";
     for (let index = userString.length - 1; index >= 0; index--) {
@@ -28,10 +28,11 @@ function checkPalindrome2(userString) {
     }
 
     if (revString == userString) {
-        isPalindrome = false;
-    } else {
         isPalindrome = true;
+    } else {
+        isPalindrome = false;
     }
+    returnObj["userString"] = userString;
     returnObj["IsPalindrome"] = isPalindrome;
     returnObj["revString"] = revString;
 
@@ -49,13 +50,13 @@ function displayData(returnObj) {
     document.getElementById("alert").classList.remove("alert-danger");
     document.getElementById("alert").classList.remove("alert-success");
 
-    if (returnObj[displayData] == true) {
+    if (returnObj["IsPalindrome"]) {
         document.getElementById("alert").classList.add("alert-success");
-        document.getElementById("msg").innerHTML = `It is a Palindrome!; ${userString}`;
+        document.getElementById("msg").innerHTML = `It is a Palindrome!; ${returnObj["userString"]}`;
         document.getElementById("alertheading").innerHTML = `You Did It!<br> Your reversed string is:${returnObj["revString"]}`;
     } else {
         document.getElementById("alert").classList.add("alert-danger");
-        document.getElementById("msg").innerHTML = `It is not a Palindrome...: ${displayData}`;
+        document.getElementById("msg").innerHTML = `It is not a Palindrome...: ${returnObj["userString"]}`;
         document.getElementById("alertheading").innerHTML = `Sorry! <br> Your reversed string is:${returnObj["revString"]}`;
     }
 
