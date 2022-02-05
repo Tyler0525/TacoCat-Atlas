@@ -1,8 +1,8 @@
   :root {
-      --tt-dark-color: #518f42;
+      --tt-dark-color: #666363;
       --tt-light-color: #e9e9e9;
       --tt-primary-color: #000000;
-      --tt-secondary-color: #ec3f13;
+      --tt-secondary-color: #58ec13;
   }
 
   main>.container {
@@ -14,6 +14,9 @@
   /*-- Navbar Styles --*/
   .navbarBG {
       background-color: var(--tt-dark-color);
+  }
+  body{
+      background-color: #9f8dac;
   }
 a.navbar-brand{
     color: #000000 !important;
